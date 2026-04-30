@@ -1,0 +1,740 @@
+/* Admin page uses the same input/button styles from LoginPanel.css */
+
+.admin-page {
+  padding: 0.75rem 0 1.25rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.admin-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e4e6eb;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 760px) {
+  .admin-hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-hero-actions .btn-secondary {
+    width: auto;
+    align-self: flex-start;
+  }
+}
+
+.admin-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.admin-hero p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.55;
+  max-width: 70ch;
+}
+
+.admin-me {
+  margin-top: 0.75rem !important;
+  color: #25272a !important;
+}
+
+.admin-hero-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-panel {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e4e6eb;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 10px 26px rgba(0, 0, 0, 0.04);
+}
+
+/* List / search / table section titles (sans-serif, matches admin UI) */
+.admin-page .admin-section:not(.profile-create-section) > h2.section-title {
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eef0f3;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+/* —— Profile create (professional form) —— */
+.profile-create-section {
+  width: 100%;
+  max-width: min(100%, 42rem);
+  margin: 0 auto;
+}
+
+.profile-create-section > h2.section-title.profile-create-intro,
+.profile-create-intro.section-title {
+  margin: 0 0 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef0f3;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+
+.profile-create-subtitle {
+  margin: 0.35rem 0 0;
+  font-size: 0.9375rem;
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+.profile-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.profile-field-group {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.35rem;
+  align-items: center;
+}
+
+/* Label above field; inputs use full content width */
+.profile-field-group--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.profile-field-group--stack > .profile-field-help {
+  text-align: left;
+  align-self: stretch;
+}
+
+.profile-field-group--stack .profile-text-input,
+.profile-field-group--stack .profile-textarea {
+  grid-column: unset;
+  width: 100%;
+  max-width: none;
+}
+
+.profile-field-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #374151;
+  margin: 0;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.profile-text-input {
+  grid-column: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #111827;
+  background: #fafbfc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.profile-text-input::placeholder {
+  color: #9ca3af;
+}
+
+.profile-text-input:hover {
+  border-color: #d1d5db;
+  background: #fff;
+}
+
+.profile-text-input:focus {
+  outline: none;
+  border-color: #02a95c;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(2, 169, 92, 0.12);
+}
+
+select.profile-text-input.profile-select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 2.25rem;
+  background-color: #fafbfc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M3 4.5L6 7.5L9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+select.profile-text-input.profile-select:hover {
+  background-color: #fff;
+}
+
+select.profile-text-input.profile-select:focus {
+  background-color: #fff;
+}
+
+.profile-textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.profile-field-group .profile-textarea {
+  grid-column: 2;
+}
+
+.profile-field-help {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  line-height: 1.45;
+}
+
+.access-control-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .access-control-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.access-option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.85rem 0.9rem;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafbfc;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.access-option:hover {
+  border-color: #d1d5db;
+  background: #fff;
+}
+
+.access-option:focus-within {
+  outline: none;
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(2, 169, 92, 0.15);
+}
+
+.access-option.is-on {
+  border-color: #02a95c;
+  background: #f0fdf6;
+  box-shadow: 0 0 0 1px rgba(2, 169, 92, 0.12);
+}
+
+.access-option-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.access-option-check {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 5px;
+  background: #fff;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.access-option.is-on .access-option-check {
+  border-color: #02a95c;
+  background: #02a95c;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6L5 8.5L9.5 3.5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.65rem;
+}
+
+.access-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.access-option-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.35;
+}
+
+.access-option-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+.profile-form-actions {
+  width: 100%;
+  padding-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-form-actions > .btn-primary {
+  width: 100%;
+  margin-top: 0;
+}
+
+.profile-form-actions--split {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.65rem;
+}
+
+.profile-form-actions--split > .btn-primary,
+.profile-form-actions--split > .btn-secondary {
+  flex: 1 1 10rem;
+  min-width: 0;
+  width: auto;
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .profile-field-group {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .profile-text-input,
+  .profile-field-group .profile-textarea {
+    grid-column: auto;
+  }
+
+  .profile-form-actions--split {
+    flex-direction: column;
+  }
+
+  .profile-form-actions--split > .btn-primary,
+  .profile-form-actions--split > .btn-secondary {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* Edit-profile drawer: primary save action */
+.admin-page .profile-save-changes-btn {
+  margin-top: 0;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 1px 2px rgba(2, 132, 199, 0.2),
+    0 8px 20px -4px rgba(14, 165, 233, 0.28);
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.06s ease,
+    border-color 0.18s ease;
+}
+
+.admin-page .profile-save-changes-btn:hover:not(:disabled) {
+  box-shadow:
+    0 2px 4px rgba(2, 132, 199, 0.22),
+    0 12px 28px -4px rgba(14, 165, 233, 0.35);
+}
+
+.admin-page .profile-save-changes-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px rgba(2, 132, 199, 0.18),
+    0 4px 12px -2px rgba(14, 165, 233, 0.22);
+}
+
+/* —— Admin data tables (profiles + accounts) —— */
+.admin-page .users-table.users-table-4 {
+  margin-top: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 10px 28px -8px rgba(15, 23, 42, 0.1);
+}
+
+.admin-page .users-table.users-table-4 .users-row-4 {
+  gap: 0.85rem 1rem;
+  padding: 0.8rem 1.05rem;
+  min-height: 3rem;
+  align-items: center;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.admin-page .users-table.users-table-4 .users-header {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+.admin-page .users-table.users-table-4 .users-row:not(.users-header):nth-child(even) {
+  background: #fafbfc;
+}
+
+/* Manage profiles: columns + cells */
+.admin-page .users-table-profiles .users-row-4 {
+  grid-template-columns: 76px minmax(120px, 1.25fr) 108px minmax(160px, 1.65fr);
+}
+
+.admin-page .users-table-profiles .profiles-cell-id {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.admin-page .users-table-profiles .profiles-cell-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.admin-page .users-table-profiles .profiles-cell-status {
+  display: flex;
+  align-items: center;
+}
+
+.admin-page .users-table-profiles .profiles-cell-access {
+  white-space: normal;
+  line-height: 1.5;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.admin-page .users-table-profiles .users-row-profiles-data {
+  cursor: pointer;
+}
+
+.admin-page .users-table-profiles .users-row-profiles-data:hover {
+  background: #f0f9ff !important;
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, 0.12);
+}
+
+.admin-page .users-table-profiles .users-row-profiles-data:active {
+  background: #e0f2fe !important;
+}
+
+.admin-page .users-table-profiles .users-row-profiles-data:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px rgba(14, 165, 233, 0.45),
+    inset 4px 0 0 #0ea5e9;
+  z-index: 1;
+}
+
+/* Manage accounts: columns + cells */
+.admin-page .users-table-accounts .users-row-accounts {
+  grid-template-columns: 76px minmax(96px, 1fr) minmax(168px, 1.5fr) minmax(112px, 1fr) 108px;
+}
+
+.admin-page .users-table-accounts .accounts-cell-id {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.admin-page .users-table-accounts .accounts-cell-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.admin-page .users-table-accounts .accounts-cell-email {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.admin-page .users-table-accounts .accounts-cell-profile {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+.admin-page .users-table-accounts .accounts-cell-status {
+  display: flex;
+  align-items: center;
+}
+
+.admin-page .users-table-accounts .users-row-accounts-data {
+  cursor: pointer;
+}
+
+.admin-page .users-table-accounts .users-row-accounts-data:hover {
+  background: #f0f9ff !important;
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, 0.12);
+}
+
+.admin-page .users-table-accounts .users-row-accounts-data:active {
+  background: #e0f2fe !important;
+}
+
+.admin-page .users-table-accounts .users-row-accounts-data:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px rgba(14, 165, 233, 0.45),
+    inset 4px 0 0 #0ea5e9;
+  z-index: 1;
+}
+
+.admin-page .users-table-accounts .users-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-page .users-table.users-table-4 .status-pill {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+}
+
+.admin-page .table-action-btn {
+  padding: 0.42rem 0.7rem;
+  border-radius: 8px;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.admin-page .table-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.admin-page .table-action-btn--primary {
+  color: #fff;
+  background: #0d6efd;
+  border-color: #0b5ed7;
+  box-shadow: 0 1px 2px rgba(13, 110, 253, 0.25);
+}
+
+.admin-page .table-action-btn--primary:hover:not(:disabled) {
+  background: #0b5ed7;
+  border-color: #0a58ca;
+  box-shadow: 0 2px 6px rgba(13, 110, 253, 0.3);
+}
+
+.admin-page .table-action-btn--neutral {
+  color: #1f2937;
+  background: #fff;
+  border-color: #d1d5db;
+}
+
+.admin-page .table-action-btn--neutral:hover:not(:disabled) {
+  border-color: #9ca3af;
+  background: #f9fafb;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.admin-page .table-action-btn:active:not(:disabled) {
+  transform: translateY(0.5px);
+}
+
+.admin-page .table-action-btn:focus-visible {
+  outline: 2px solid rgba(13, 110, 253, 0.45);
+  outline-offset: 2px;
+}
+
+/* Fundraiser activities table (same interaction pattern as accounts) */
+.admin-page .users-table-fra .users-row-fra {
+  grid-template-columns: 72px minmax(120px, 1.4fr) 108px 96px minmax(100px, 1fr);
+}
+
+.admin-page .users-table-fra .fra-cell-id {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.admin-page .users-table-fra .fra-cell-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.admin-page .users-table-fra .fra-cell-status {
+  display: flex;
+  align-items: center;
+}
+
+.admin-page .users-table-fra .fra-cell-goal,
+.admin-page .users-table-fra .fra-cell-updated {
+  font-size: 0.8125rem;
+  color: #475569;
+}
+
+.admin-page .users-table-fra .users-row-fra-data {
+  cursor: pointer;
+}
+
+.admin-page .users-table-fra .users-row-fra-data:hover {
+  background: #f0f9ff !important;
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, 0.12);
+}
+
+.admin-page .users-table-fra .users-row-fra-data:active {
+  background: #e0f2fe !important;
+}
+
+.admin-page .users-table-fra .users-row-fra-data:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px rgba(14, 165, 233, 0.45),
+    inset 4px 0 0 #0ea5e9;
+  z-index: 1;
+}
+
+.admin-page .fra-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.admin-page .fra-pill--active {
+  color: #065f46;
+  background: #d1fae5;
+  border-color: rgba(5, 150, 105, 0.35);
+}
+
+.admin-page .fra-pill--draft {
+  color: #4b5563;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.admin-page .fra-pill--paused {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+
+.admin-page .fra-pill--completed {
+  color: #1e40af;
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.admin-page .fra-pill--cancelled {
+  color: #991b1b;
+  background: #fee2e2;
+  border-color: #fecaca;
+}

@@ -1,0 +1,75 @@
+.home-loading {
+  min-height: calc(100svh - 10rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-loading-inner {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.home-loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--login-accent, #0ea5e9);
+  opacity: 0.35;
+  animation: home-loading-pulse 1s ease-in-out infinite;
+}
+
+.home-loading-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.home-loading-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes home-loading-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.nav-muted {
+  display: inline-block;
+  min-width: 1rem;
+  min-height: 1rem;
+}
+
+.nav-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  color: #075985;
+}
+
+.nav-link-button {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #25272a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.nav-link-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}

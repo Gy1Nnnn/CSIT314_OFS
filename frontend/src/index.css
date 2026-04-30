@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  background: var(--login-bg, #bedbf2);
+}
+
+#root {
+  min-height: 100svh;
+}
