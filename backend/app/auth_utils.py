@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import bcrypt
@@ -6,7 +5,6 @@ from jose import jwt
 
 SECRET_KEY = "change-me-use-env-JWT_SECRET_KEY-in-production"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7
 
 
 def hash_password(password: str) -> str:
@@ -18,12 +16,10 @@ def verify_password(plain: str, hashed: str) -> bool:
 
 
 def create_access_token(user_id: int, email: str, role: str) -> str:
-    expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode: dict[str, Any] = {
         "sub": email,
         "user_id": user_id,
         "role": role,
-        "exp": expire,
     }
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
